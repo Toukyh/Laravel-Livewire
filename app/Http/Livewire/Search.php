@@ -14,8 +14,7 @@ class Search extends Component
 
     public function incrementIndex()
     {
-        if ($this->selectedIndex === (count($this->jobs) - 1))
-        {
+        if ($this->selectedIndex === (count($this->jobs) - 1)) {
             $this->selectedIndex = 0;
             return;
         }
@@ -25,8 +24,7 @@ class Search extends Component
 
     public function decrementIndex()
     {
-        if ($this->selectedIndex === 0)
-        {
+        if ($this->selectedIndex === 0) {
             $this->selectedIndex = count($this->jobs) - 1;
             return;
         }
@@ -56,7 +54,7 @@ class Search extends Component
     public function updatedQuery()
     {
         $this->resetIndex();
-        
+
         $words = '%' . $this->query . '%';
 
         if (strlen($this->query) >= 2) {

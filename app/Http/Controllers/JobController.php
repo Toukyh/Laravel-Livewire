@@ -18,4 +18,7 @@ class JobController extends Controller
     {
         return view('jobs.show', compact('id'));
     }
+    public function create()
+    {
+    }
 }

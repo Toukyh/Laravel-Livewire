@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="text-gray-600 body-font">
+<section class="text-gray-600 dark:text-gray-200 dark:bg-gray-900 body-font">
     <div class="container mx-auto flex flex-col px-5 py-24 justify-center items-center">
         <div class="w-full md:w-2/3 flex flex-col mb-16 items-center text-center">
-            <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{{ $id->title }}</h1>
+            <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium  text-gray-900 dark:text-gray-100">{{ $id->title }}</h1>
             <p class="mb-8 leading-relaxed">{{ $id->description }}</p>
             <div class="flex w-full justify-center items-end">
+                @if (auth()->user()->role_id != 1)
                 <a
                     href="{{ route('proposals.submit', $id->id) }}"
                     class="inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg"
@@ -16,6 +17,7 @@
                     </svg>
                     Soumettre une proposition
                 </a>
+                @endif
             </div>
         <p class="text-sm mt-2 text-gray-500 mb-8 w-full">Neutra shabby chic ramps, viral fixie.</p>
         </div>

@@ -25,6 +25,7 @@ Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/jobs/{id}', [JobController::class, 'show'])->name('jobs.show');
+    Route::post('/jobs/create', [JobController::class, 'create'])->name('jobs.create');
     Route::get('/home', [ProposalController::class, 'home'])->name('home');
 
     Route::get('/conversations', [ConversationController::class, 'index'])->name('conversations.index');

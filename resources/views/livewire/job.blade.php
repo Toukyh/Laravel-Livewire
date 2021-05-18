@@ -6,26 +6,30 @@
         <div class="flex items-center text-sm text-gray-600 font-semibold mb-2">
             {{ number_format($job->price / 100, 2, ',', ' ') }} €
     </div>
-        @if (auth()->user()->role_id == 2)
-        <a href="{{ route('jobs.show', $job->id) }}" class="text-indigo-500 inline-flex items-center">Lire plus
+        @if (auth()->user()->role_id !== 1)
+        <a href="{{ route('jobs.show', $job->id) }}" class="text-green-500 inline-flex items-center">Lire plus
             <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14"></path>
             <path d="M12 5l7 7-7 7"></path>
             </svg>
         </a>
-        @elseif ($job->user->id != auth()->user()->id)
-        <a href="#" class="text-indigo-500 inline-flex items-center">Modifier
+        @elseif ($job->user->id == auth()->user()->id)
+        <a href="#" class="text-green-500 inline-flex items-center">Modifier
             <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14"></path>
             <path d="M12 5l7 7-7 7"></path>
             </svg>
         </a>
+
+        @else
+
         @endif
+
         <div class="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
-            <button wire:click.prevent="like()" class="text-gray-500 hover:text-indigo-500 focus:outline-none">
+            <button wire:click.prevent="like()" class="text-gray-500 hover:text-green-500 focus:outline-none">
                 <span>
                     @if ($job->isLiked())
-                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="blue" viewBox="0 0 24 24" stroke="bluesky">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="rgb(50, 168, 129)" viewBox="0 0 24 24" stroke="rgb(50, 168, 129)">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                     </svg>
                     @else
