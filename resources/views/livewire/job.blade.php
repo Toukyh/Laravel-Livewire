@@ -19,10 +19,7 @@
             <path d="M5 12h14"></path>
             <path d="M12 5l7 7-7 7"></path>
             </svg>
-        </a>
-
-        @else
-
+        </a>    
         @endif
 
         <div class="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
