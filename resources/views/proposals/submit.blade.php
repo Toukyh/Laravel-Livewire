@@ -14,7 +14,7 @@
             <form method="POST" class="relative" action="{{ route('proposals.submit.store', $jobId) }}">
                 @csrf
               <label for="message" class="leading-7 text-sm  text-gray-600 dark:text-gray-300">Message</label>
-              <textarea id="message" name="coverLetter" class="w-full bg-gray-100 bg-opacity-50 dark:bg-gray-900 dark:text-gray-100 rounded border border-gray-300 focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+              <textarea id="message" name="coverLetter" class="w-full bg-gray-100 bg-opacity-50 dark:bg-gray-900 dark:text-gray-100 rounded border border-gray-300 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                 @error('coverLetter')
                     <span class="text-red-400 text-sm">{{ $message }}</span>
                 @enderror

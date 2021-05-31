@@ -17,7 +17,7 @@
         <div class="z-10 bg-gray-100 dark:bg-gray-800 border border-gray-400 rounded w-56 px-2 py-1 mt-10 flex flex-col absolute" x-show="open">
         @if (count($jobs) > 0)
             @foreach ($jobs as $index => $job)
-                <a  class="{{ ($index === $selectedIndex) ? 'text-green-400 rounded bg-gray-600' : '' }} my-2">{{ $job['title'] }}</a>
+                <a href="{{ route('jobs.show', $job['id']) }}"  class=" hover:text-green-500 {{ ($index === $selectedIndex) ? 'text-green-400 rounded bg-gray-600' : '' }} my-2">{{ $job['title'] }}</a>
             @endforeach
         @else
         <span>il n'y a pas de"{{ $query }}"</span>

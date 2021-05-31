@@ -22,7 +22,7 @@ class JobFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(3),
+            'title' => $this->faker->sentence(2),
             'description' => $this->faker->sentence(8),
             'price' => $this->faker->numberBetween(100, 1000) * 100,
             'status' => '1',

@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <section class="text-gray-600 dark:text-gray-400 dark:bg-gray-900 body-font">
     <form method="POST" action="{{ route('password.update') }}" >

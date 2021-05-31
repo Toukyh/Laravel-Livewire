@@ -11,6 +11,15 @@ class Job extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title', 'description', 'price'];
+
+    protected static function booted()
+    {
+        static::creating(function ($Job) {
+            $Job->user_id = auth()->id();
+        });
+    }
+
     public function scopeOnline($query)
     {
         return $query->where('status', 1);
