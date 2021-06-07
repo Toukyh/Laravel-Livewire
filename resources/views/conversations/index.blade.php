@@ -9,7 +9,7 @@
                 <div class="h-full flex items-center border-gray-200 dark:border-gray-600 border p-4 rounded-lg">
                     <a class="flex-grow" href="{{ route('conversation.show', $conversation->id) }}">
                         <p class="text-gray-500 ">{{ Illuminate\Support\Str::limit($conversation->messages->last()->content, 50) }}</p>
-                        <p class="font-thin item-right font-semibold text-gray-600 dark:text-gray-300">{{ auth()->user()->id === $conversation->messages->last()->user->id ? "vous, " : $conversation->messages->last()->user->name }}  {{ $conversation->messages->last()->created_at->diffForHumans() }}</p>
+                        <p class="font-thin item-right text-gray-600 dark:text-gray-300">{{ auth()->user()->id === $conversation->messages->last()->user->id ? "vous, " : $conversation->messages->last()->user->name }}  {{ $conversation->messages->last()->created_at->diffForHumans() }}</p>
                     </a>
                 </div>
             </div>

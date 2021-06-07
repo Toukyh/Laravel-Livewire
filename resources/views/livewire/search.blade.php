@@ -23,5 +23,6 @@
         <span>il n'y a pas de"{{ $query }}"</span>
         @endif
         </div>
-    @endif
-</div>
+        @endif
+    </div>
+</nav>

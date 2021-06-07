@@ -27,8 +27,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/job/create', [JobController::class, 'create'])->name('jobs.create');
     Route::post('/job/create', [JobController::class, 'store'])->name('jobs.store');
     Route::get('/jobs/{id}', [JobController::class, 'show'])->name('jobs.show');
-
     Route::get('/home', [ProposalController::class, 'home'])->name('home');
+
 
     Route::get('/conversations', [ConversationController::class, 'index'])->name('conversations.index');
     Route::get('/conversation/{conversation}', [ConversationController::class, 'show'])->name('conversation.show');

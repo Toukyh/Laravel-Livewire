@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Conversation extends Component
 {
     use AuthorizesRequests;
-    
+
     public $conversation;
     public $job;
     public $message;
@@ -24,23 +24,22 @@ class Conversation extends Component
 
     public function sendMessage()
     {
-        if($this->checkSpam()) {
+        if ($this->checkSpam()) {
             Message::create([
                 'user_id' => auth()->user()->id,
                 'conversation_id' => $this->conversation->id,
                 'content' => $this->message
             ]);
-    
+
             $this->message = '';
             $this->emit('sent');
         }
-        
     }
 
     private function checkSpam()
     {
-        $response = Message::whereBetween('created_at', [\Carbon\Carbon::now()->subMinutes(1)->toDateTimeString(), \Carbon\Carbon::now()])->where('user_id', auth()->user()->id)->get();
-        
+        $response = Message::whereBetween('created_at', [\Carbon\Carbon::now()->subSecond(1)->toDateTimeString(), \Carbon\Carbon::now()])->where('user_id', auth()->user()->id)->get();
+
         if (!$response->isEmpty()) {
             $this->emit('flash-message', 'Vous ne pouvez pas poster plus d\'un message par minute', 'warning');
             return false;
