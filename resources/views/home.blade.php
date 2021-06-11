@@ -2,7 +2,8 @@
 @extends('layouts.app')
 
 @section('content')
-@if (auth()->user()->role_id == 1)
+
+@can('access-client')
 <section class="text-gray-400 body-font bg-gray-900">
     <div class="container px-5 py-24 mx-auto">
         <div class="text-gray-400 bg-gray-900 body-font">
@@ -47,39 +48,39 @@
         </div>
     </div>
 </section>
-@endif
-@if (auth()->user()->role_id == 2)
-<section class="text-gray-400 bg-gray-900 body-font">
-    <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-col text-center w-full mb-12">
-            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Proposition Envoyés ({{ $proposals->count() }})</h1>
-            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep.</p>
-          </div>
-      <div class="flex flex-wrap -mx-4 -my-8">
-        @foreach($proposals as $proposal)
-        <div class="py-8 px-4 lg:w-1/3">
-          <div class="h-full flex items-start">
-            <div class="w-12 flex-shrink-0 flex flex-col text-center leading-none">
-              <span class="text-gray-400 pb-2 mb-2 border-b-2 border-gray-700">{{$proposal->created_at->format('M')}}</span>
-              <span class="font-medium text-lg leading-none text-gray-300 title-font">{{$proposal->created_at->format('d')}}</span>
+@endcan
+@can('access-free')
+    <section class="text-gray-400 bg-gray-900 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Proposition Envoyés ({{ $proposals->count() }})</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep.</p>
             </div>
-            <div class="flex-grow pl-6">
-            @if ($proposal->validated)
-                <h2 class="tracking-widest text-xs title-font font-medium text-green-400 mb-1">VALIDE</h2>
-            @else
-                <h2 class="tracking-widest text-xs title-font font-medium text-gray-200 mb-1">EN ATTENTE</h2>
-            @endif
-              <h1 class="title-font text-xl font-medium text-white mb-3">{{ $proposal->job->title }}</h1>
-              <p class="leading-relaxed mb-5">{{ $proposal->coverLetter->content }}.</p>
+        <div class="flex flex-wrap -mx-4 -my-8">
+            @foreach($proposals as $proposal)
+            <div class="py-8 px-4 lg:w-1/3">
+            <div class="h-full flex items-start">
+                <div class="w-12 flex-shrink-0 flex flex-col text-center leading-none">
+                <span class="text-gray-400 pb-2 mb-2 border-b-2 border-gray-700">{{$proposal->created_at->format('M')}}</span>
+                <span class="font-medium text-lg leading-none text-gray-300 title-font">{{$proposal->created_at->format('d')}}</span>
+                </div>
+                <div class="flex-grow pl-6">
+                @if ($proposal->validated)
+                    <h2 class="tracking-widest text-xs title-font font-medium text-green-400 mb-1">VALIDE</h2>
+                @else
+                    <h2 class="tracking-widest text-xs title-font font-medium text-gray-200 mb-1">EN ATTENTE</h2>
+                @endif
+                <h1 class="title-font text-xl font-medium text-white mb-3">{{ $proposal->job->title }}</h1>
+                <p class="leading-relaxed mb-5">{{ $proposal->coverLetter->content }}.</p>
 
+                </div>
             </div>
-          </div>
+            </div>
+            @endforeach
         </div>
-        @endforeach
-      </div>
-    </div>
-</section>
-@endif
+        </div>
+    </section>
+@endcan
 <section class="text-gray-400 bg-gray-900 body-font">
     <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-col text-center w-full mb-12">

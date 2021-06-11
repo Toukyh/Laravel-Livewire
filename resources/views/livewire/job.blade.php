@@ -6,19 +6,19 @@
         <div class="flex items-center text-sm text-gray-600 font-semibold mb-2">
             {{ number_format($job->price / 100, 2, ',', ' ') }} €
     </div>
-        <a href="{{ route('jobs.show', $job->id) }}" class="text-green-500 inline-flex items-center">Lire plus
-            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"></path>
-            <path d="M12 5l7 7-7 7"></path>
-            </svg>
-        </a>
-        @if ($job->user->id == auth()->user()->id)
-        <a href="#" class="text-green-500 inline-flex items-center">Modifier
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-            </svg>
-        </a>
-        @endif
+    @if ($job->user->id == auth()->user()->id)
+    <a href="#" class="text-green-500 inline-flex items-center">Modifier
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+        </svg>
+    </a>
+    @endif
+    <a href="{{ route('jobs.show', $job->id) }}" class="text-green-500 inline-flex items-center">Lire plus
+        <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14"></path>
+        <path d="M12 5l7 7-7 7"></path>
+        </svg>
+    </a>
 
         <div class="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
             <button wire:click.prevent="like()" class="text-gray-500 hover:text-green-500 focus:outline-none">

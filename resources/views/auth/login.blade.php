@@ -27,11 +27,7 @@
                         <span class="text-red-400 text-sm">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="relative">
-                    <input type="checkbox" class="checked:bg-blue-600 checked:border-transparent"name="remember" id="   ">
-                    <label for="remember" class="leading-7 text-sm text-gray-600 dark:text-gray-100">Se souvenir de moi</label>
-                </div>
-                <button type="submit" class="text-white bg-green-500 border-0 py-2 px-8 mt-3 focus:outline-none hover:bg-green-600  rounded text-lg">Se connecter</button>
+                <button type="submit" class="text-white bg-green-500 border-0 py-2 px-8 mt-5 focus:outline-none hover:bg-green-600  rounded text-lg">Se connecter</button>
                 <a href="{{url('forgot-password')}}" class="mb-4 mt-3 font-medium text-sm text-gray-500 hover:text-green-500">Mot de passe oublié!</a>
                 </div>
         </div>

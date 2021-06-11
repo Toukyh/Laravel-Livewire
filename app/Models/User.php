@@ -78,4 +78,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->conversations()->get();
     }
+
+    // Autorisation du client pour son role
+    public function isClient()
+    {
+        return $this->role()->where('name', 'Client')->first();
+    }
+    public function isFree()
+    {
+        return $this->role()->where('name', 'Freelance')->first();
+    }
 }

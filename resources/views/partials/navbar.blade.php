@@ -10,10 +10,10 @@
 
 
             @auth
-            <livewire:search />
             <a class="mr-5 hover:text-gray-900 dark:text-white dark:hover:text-green-500" href="{{ route('jobs.index') }}">Works</a>
             <a class="mr-5 hover:text-gray-900 dark:text-white dark:hover:text-green-500" href="{{ route('home') }}">Dashboard</a>
             <a class="mr-5 hover:text-gray-900 dark:text-white dark:hover:text-green-500" href="{{ route('conversations.index') }}">Messages</a>
+            <livewire:search />
         </nav>
         <a
         class="inline-flex items-center dark:text-white bg-gray-100 dark:bg-gray-700 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 dark:hover:bg-gray-500 rounded text-base mt-4 md:mt-0 mr-2"
