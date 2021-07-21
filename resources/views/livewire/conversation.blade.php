@@ -6,11 +6,11 @@
                 @foreach($conversation->messages as $message)
                     <div>
                     <p class=" mx-auto leading-relaxed font-normal
-                    {{ $message->user->id === auth()->user()->id  ? 'text-left' : 'text-right'}}">
+                    {{ $message->user->id === auth()->user()->id  ? 'text-left ' : 'text-right'}}">
                         {{ $message->user->id === auth()->user()->id  ? 'Vous avez dit : ' : $message->user->name . ' a dit :'}}
                     </p>
-                    <p class="rounded-full text-center py-3 mb-1 font-medium
-                    {{ $message->user->id === auth()->user()->id  ? 'bg-green-500 text-white mr-auto max-w-1/3 w-1/2' : 'ml-auto bg-gray-300 dark:bg-gray-700  text-gray-700 dark:text-gray-100 max-w-1/2 w-1/2'}}">{{ $message->content }}</p>
+                    <p class="rounded-2xl text-center py-3 mb-1 font-medium
+                    {{ $message->user->id === auth()->user()->id  ? 'bg-green-500 rounded-bl-none text-white mr-auto max-w-1/3 w-1/2' : 'ml-auto bg-gray-300 dark:bg-gray-700 rounded-tr-none  text-gray-700 dark:text-gray-100 max-w-1/2 w-1/2'}}">{{ $message->content }}</p>
                     </div>
                 @endforeach
             </div>
