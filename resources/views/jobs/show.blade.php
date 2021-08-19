@@ -19,7 +19,7 @@
                 </a>
                 @endif
             </div>
-        <p class="text-sm mt-2 text-gray-500 mb-8 w-full">Neutra shabby chic ramps, viral fixie.</p>
+        <p class="text-sm mt-2 text-gray-500 mb-8 w-full">Poster par {{$id->user->name}}</p>
         </div>
     </div>
 </section>

@@ -6,13 +6,7 @@
         <div class="flex items-center text-sm text-gray-600 font-semibold mb-2">
             {{ number_format($job->price / 100, 2, ',', ' ') }} €
     </div>
-    @if ($job->user->id == auth()->user()->id)
-    <a href="#" class="text-green-500 inline-flex items-center">Modifier
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-        </svg>
-    </a>
-    @endif
+
     <a href="{{ route('jobs.show', $job->id) }}" class="text-green-500 inline-flex items-center">Lire plus
         <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path d="M5 12h14"></path>
@@ -37,6 +31,7 @@
             <span class="text-gray-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
 
             </span>
+
             <span class="text-gray-500 inline-flex items-center leading-none text-sm">
                 <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                     <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
@@ -44,6 +39,28 @@
                 <span>{{ $job->proposals->count() }} </span>
                 <span class="ml-1"> @choice('proposition | propositions', $job->proposals)</span>
             </span>
+            @if ($job->user->id == auth()->user()->id)
+            <span class="text-gray-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+
+            </span>
+            <a href="{{route('jobs.edit',$job->id)}}" >
+                <span class="text-gray-500 inline-flex items-center leading-none text-sm hover:text-blue-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                      </svg>
+                </span>
+            </a>
+            <span class="text-gray-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+
+            </span>
+            <a href="{{route('jobs.delete',$job->id)}}" >
+                <span class="text-gray-500 inline-flex items-center leading-none text-sm hover:text-red-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+            </a>
+            @endif
 
         </div>
     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Job;
+use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Redirect;
@@ -36,5 +37,13 @@ class JobController extends Controller
             return Redirect::route('home');
         }
         return view('jobs.create');
+    }
+    public function destroy(Job $id)
+    {
+        $job = Job::find($id);
+        $job->each->delete();
+        // dd($jobs);
+
+        return Redirect::route('jobs.index');
     }
 }
