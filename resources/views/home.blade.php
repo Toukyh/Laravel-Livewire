@@ -4,9 +4,9 @@
 @section('content')
 
 @can('access-client')
-<section class="text-gray-400 body-font bg-gray-900">
+<section class="text-gray-400 body-font bg-gray-100 dark:bg-gray-900 ">
     <div class="container px-5 py-24 mx-auto">
-        <div class="text-gray-400 bg-gray-900 body-font">
+        <div class="text-gray-400 bg-gray-100 dark:bg-gray-900  body-font">
             <div class="container px-5 py-10 mx-auto flex items-center md:flex-row flex-col">
               <div class="flex flex-col md:pr-10 md:mb-0 mb-6 pr-0 w-full md:w-auto md:text-left text-center">
                 <h2 class="text-xs text-green-400 tracking-widest font-medium title-font mb-1">ROOF PARTY POLAROID</h2>
@@ -50,10 +50,10 @@
 </section>
 @endcan
 @can('access-free')
-    <section class="text-gray-400 bg-gray-900 body-font">
+    <section class="text-gray-400 bg-gray-100 dark:bg-gray-900  body-font">
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-col text-center w-full mb-12">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Proposition Envoyés ({{ $proposals->count() }})</h1>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 dark:text-white text-green-500">Proposition Envoyés ({{ $proposals->count() }})</h1>
                 <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep.</p>
             </div>
         <div class="flex flex-wrap -mx-4 -my-8">
@@ -81,20 +81,20 @@
         </div>
     </section>
 @endcan
-<section class="text-gray-400 bg-gray-900 body-font">
+<section class="text-gray-400 bg-gray-100 dark:bg-gray-900  body-font">
     <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-col text-center w-full mb-12">
-            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">missions favorites ({{ auth()->user()->likes()->count() }})</h1>
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 dark:text-white text-green-500">missions favorites ({{ auth()->user()->likes()->count() }})</h1>
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep.</p>
         </div>
 
       <div class="flex flex-wrap -m-4">
         @foreach(auth()->user()->likes as $like)
         <div class="p-4 lg:w-1/3">
-          <div class="h-full bg-gray-800 bg-opacity-40 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-            <h2 class="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">CATEGORY</h2>
-            <h1 class="title-font sm:text-2xl text-xl font-medium text-white mb-3">{{ $like->title }}</h1>
-            <p class="leading-relaxed mb-3">{{ Illuminate\Support\Str::limit($like->description, 120, '...')}}</p>
+          <div class="h-full dark:bg-gray-800 bg-gray-300 bg-opacity-40 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+            <h2 class="tracking-widest text-xs title-font font-medium dark:text-gray-500  mb-1"></h2>
+            <h1 class="title-font sm:text-2xl text-xl font-medium dark:text-white text-gray-900 mb-3">{{ $like->title }}</h1>
+            <p class="leading-relaxed mb-3 dark:text-gray-200 text-gray-800">{{ Illuminate\Support\Str::limit($like->description, 120, '...')}}</p>
             <a href="{{ route('jobs.show', $like->id) }}"  class="text-green-400 inline-flex items-center">Learn More
               <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14"></path>

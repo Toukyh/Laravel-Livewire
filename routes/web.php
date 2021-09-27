@@ -26,7 +26,8 @@ Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/job/create', [JobController::class, 'create'])->name('jobs.create');
     Route::post('/job/create', [JobController::class, 'store'])->name('jobs.store');
-
+    Route::get('/job/edit/{id}', [JobController::class, 'edit'])->name('jobs.edit');
+    Route::post('/job/update/{id}', [JobController::class, 'update'])->name('jobs.update');
     Route::get('/job/{id}', [JobController::class, 'destroy'])->name('jobs.delete');
 
     Route::get('/jobs/{id}', [JobController::class, 'show'])->name('jobs.show');

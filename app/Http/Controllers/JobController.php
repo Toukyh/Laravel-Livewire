@@ -46,4 +46,19 @@ class JobController extends Controller
 
         return Redirect::route('jobs.index');
     }
+    public function edit($job)
+    {
+        $job = Job::find($job);
+        return view('jobs.edit', compact('job'));
+    }
+    public function update(Request $request, $id)
+    {
+        $job = Job::find($id);
+        $job->title = $request->title;
+        $job->price = $request->price;
+        $job->description = $request->description;
+        $job->save();
+
+        return redirect('jobs');
+    }
 }

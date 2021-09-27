@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-  <section class="text-gray-600 dark:bg-gray-900 dark:text-gray-100 body-font">
-      <div class="container px-5 py-24 mx-auto">
+<section class="text-gray-600 dark:bg-gray-900 dark:text-gray-100 body-font">
+    <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-wrap -m-2">
             @foreach($conversations as $conversation)
               <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
@@ -17,4 +17,6 @@
         </div>
     </div>
 </section>
+
+
 @endsection
